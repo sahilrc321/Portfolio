@@ -13,6 +13,14 @@ document.querySelectorAll('nav ul li a').forEach(anchor => {
         });
     });
 });
+document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetElement = document.querySelector(this.getAttribute('href'));
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+    });
+});
 
 // Optionally: You can add more interactivity like animations or popups
 // You can also create a toggle for mobile navigation if required
